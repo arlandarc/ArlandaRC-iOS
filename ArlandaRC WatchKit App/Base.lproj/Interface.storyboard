@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6724" systemVersion="14A389" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Arlanda RC-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller identifier="Topics" title="Arlanda RC" hidesWhenLoading="NO" alwaysBounce="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="ArlandaRC_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" spacing="6" id="zeD-zL-NRF">
+                            <items>
+                                <tableRow identifier="TopicsRow" id="Le0-SE-SCb" customClass="TopicsRowController" customModule="ArlandaRC_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="1" id="2En-5A-zGh">
+                                        <items>
+                                            <label alignment="left" text="Label" numberOfLines="0" id="sst-sW-NJA">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                            <label alignment="left" text="Label" id="T2K-Lg-lGn">
+                                                <color key="textColor" red="0.99607843137254903" green="0.76470588235294112" blue="0.16078431372549021" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                            </label>
+                                            <label alignment="left" text="Idag 10:05" id="nHD-hh-N1A">
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
+                                        </items>
+                                        <edgeInsets key="margins" left="5" right="5" top="2" bottom="3"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="rowCategory" destination="T2K-Lg-lGn" id="msu-8N-Ndj"/>
+                                        <outlet property="rowDate" destination="nHD-hh-N1A" id="w8q-TQ-4sP"/>
+                                        <outlet property="rowTitle" destination="sst-sW-NJA" id="Axi-0n-8yW"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <menu key="menu" id="ibY-m9-cbW">
+                        <items>
+                            <menuItem title="Ladda om" icon="resume" id="fcZ-T6-CYe">
+                                <connections>
+                                    <action selector="onMenuReload" destination="AgC-eL-Hgc" id="GoU-Mv-psd"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="topicsTable" destination="zeD-zL-NRF" id="ST9-N9-5eD"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
@@ -31,9 +73,103 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="ArlandaRC_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
+        <!--Posts-->
+        <scene sceneID="JNd-BM-Dgu">
+            <objects>
+                <controller identifier="Posts" hidesWhenLoading="NO" alwaysBounce="YES" id="lzN-Ls-5J8" customClass="PostsInterfaceController" customModule="ArlandaRC_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" spacing="8" id="mxz-pg-qTw">
+                            <items>
+                                <tableRow identifier="PostsRow" id="8wF-ad-zxi" customClass="PostsRowController" customModule="ArlandaRC_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="1" id="q2r-Fv-svQ">
+                                        <items>
+                                            <label alignment="left" text="Label" numberOfLines="0" id="dAr-PC-e95">
+                                                <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                            </label>
+                                            <group width="1" alignment="left" id="Pdj-g2-2nd">
+                                                <items>
+                                                    <label width="1" widthAdjustment="-35" alignment="left" text="Label" id="SQS-Be-lTk">
+                                                        <color key="textColor" red="0.99607843139999996" green="0.76470588240000004" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                    </label>
+                                                    <label alignment="left" hidden="YES" text="Label" id="pOU-rX-6Lc">
+                                                        <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <edgeInsets key="margins" left="5" right="5" top="2" bottom="3"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="postAuthor" destination="SQS-Be-lTk" id="SJQ-H2-qXl"/>
+                                        <outlet property="postDate" destination="pOU-rX-6Lc" id="Ef7-jk-bAf"/>
+                                        <outlet property="postMessage" destination="dAr-PC-e95" id="UVS-fz-hc5"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="PostsDate" selectable="NO" id="cw8-cy-AVD" customClass="PostsDateController" customModule="ArlandaRC_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="0.0" id="wRJ-WU-rD7">
+                                        <items>
+                                            <label alignment="center" text="15-9-15 10:05" id="0Yp-WX-znb">
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
+                                        </items>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="postDate" destination="0Yp-WX-znb" id="Oeb-iv-fjz"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="postsTable" destination="mxz-pg-qTw" id="QJW-E0-PNl"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="390" y="345"/>
+        </scene>
+        <!--Info-->
+        <scene sceneID="DSR-JS-2Hg">
+            <objects>
+                <controller identifier="Author" title="Info" id="M36-CF-c4q" customClass="AuthorInterfaceController" customModule="ArlandaRC_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="center" verticalAlignment="center" layout="vertical" id="Kze-De-n8n">
+                            <items>
+                                <group width="1" alignment="center" verticalAlignment="center" layout="vertical" id="ktZ-zW-DXH">
+                                    <items>
+                                        <group alignment="center" radius="25" id="Pdn-mA-lZl">
+                                            <items>
+                                                <imageView width="50" height="50" alignment="center" contentMode="center" id="zdl-3y-fS9"/>
+                                            </items>
+                                        </group>
+                                        <label alignment="center" text="Ove" id="gmo-A7-9id">
+                                            <color key="textColor" red="0.99607843139999996" green="0.76470588240000004" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                        </label>
+                                        <label alignment="center" text="mmmm donut's and beer!!!" textAlignment="center" numberOfLines="0" id="Cb0-dP-o6D">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="avatar" destination="zdl-3y-fS9" id="KZk-d3-kaN"/>
+                        <outlet property="name" destination="gmo-A7-9id" id="LBm-za-mOA"/>
+                        <outlet property="signature" destination="Cb0-dP-o6D" id="1QS-As-uWd"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="558" y="345"/>
+        </scene>
     </scenes>
+    <color key="tintColor" red="0.99607843139999996" green="0.76470588240000004" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

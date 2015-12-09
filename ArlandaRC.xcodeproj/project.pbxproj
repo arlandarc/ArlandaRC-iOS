@@ -22,6 +22,13 @@
 		1F33E7041C188D7600010682 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33E7031C188D7600010682 /* ExtensionDelegate.swift */; };
 		1F33E7061C188D7600010682 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33E7051C188D7600010682 /* NotificationController.swift */; };
 		1F33E7081C188D7600010682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F33E7071C188D7600010682 /* Assets.xcassets */; };
+		1F33E71E1C18904800010682 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33E71D1C18904800010682 /* SwiftyJSON.swift */; };
+		1F33E7221C1890D800010682 /* PostsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33E7211C1890D800010682 /* PostsInterfaceController.swift */; };
+		1F33E7261C18910900010682 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33E7251C18910900010682 /* Topic.swift */; };
+		1F33E72A1C189E8C00010682 /* TopicsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33E7291C189E8C00010682 /* TopicsRowController.swift */; };
+		1F33E72C1C18A8A300010682 /* PostsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33E72B1C18A8A300010682 /* PostsRowController.swift */; };
+		1F33E72E1C18B44500010682 /* PostsDateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33E72D1C18B44500010682 /* PostsDateController.swift */; };
+		1F33E7301C18BF3800010682 /* AuthorInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33E72F1C18BF3800010682 /* AuthorInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +112,13 @@
 		1F33E7051C188D7600010682 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		1F33E7071C188D7600010682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F33E7091C188D7600010682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F33E71D1C18904800010682 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		1F33E7211C1890D800010682 /* PostsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsInterfaceController.swift; sourceTree = "<group>"; };
+		1F33E7251C18910900010682 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		1F33E7291C189E8C00010682 /* TopicsRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsRowController.swift; sourceTree = "<group>"; };
+		1F33E72B1C18A8A300010682 /* PostsRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsRowController.swift; sourceTree = "<group>"; };
+		1F33E72D1C18B44500010682 /* PostsDateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsDateController.swift; sourceTree = "<group>"; };
+		1F33E72F1C18BF3800010682 /* AuthorInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,12 +221,19 @@
 		1F33E6FE1C188D7600010682 /* ArlandaRC WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1F33E71D1C18904800010682 /* SwiftyJSON.swift */,
 				1F33E7011C188D7600010682 /* InterfaceController.swift */,
 				1F33E7031C188D7600010682 /* ExtensionDelegate.swift */,
 				1F33E7051C188D7600010682 /* NotificationController.swift */,
 				1F33E7071C188D7600010682 /* Assets.xcassets */,
 				1F33E7091C188D7600010682 /* Info.plist */,
 				1F33E6FF1C188D7600010682 /* Supporting Files */,
+				1F33E7211C1890D800010682 /* PostsInterfaceController.swift */,
+				1F33E7251C18910900010682 /* Topic.swift */,
+				1F33E7291C189E8C00010682 /* TopicsRowController.swift */,
+				1F33E72B1C18A8A300010682 /* PostsRowController.swift */,
+				1F33E72D1C18B44500010682 /* PostsDateController.swift */,
+				1F33E72F1C18BF3800010682 /* AuthorInterfaceController.swift */,
 			);
 			path = "ArlandaRC WatchKit Extension";
 			sourceTree = "<group>";
@@ -329,6 +350,7 @@
 				TargetAttributes = {
 					1F33E6C21C188D7500010682 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5JUR9JK328;
 					};
 					1F33E6D61C188D7500010682 = {
 						CreatedOnToolsVersion = 7.2;
@@ -340,9 +362,11 @@
 					};
 					1F33E6EA1C188D7500010682 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5JUR9JK328;
 					};
 					1F33E6F91C188D7600010682 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5JUR9JK328;
 					};
 				};
 			};
@@ -442,9 +466,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F33E7301C18BF3800010682 /* AuthorInterfaceController.swift in Sources */,
+				1F33E72C1C18A8A300010682 /* PostsRowController.swift in Sources */,
+				1F33E7221C1890D800010682 /* PostsInterfaceController.swift in Sources */,
 				1F33E7061C188D7600010682 /* NotificationController.swift in Sources */,
+				1F33E72A1C189E8C00010682 /* TopicsRowController.swift in Sources */,
 				1F33E7041C188D7600010682 /* ExtensionDelegate.swift in Sources */,
 				1F33E7021C188D7600010682 /* InterfaceController.swift in Sources */,
+				1F33E72E1C18B44500010682 /* PostsDateController.swift in Sources */,
+				1F33E7261C18910900010682 /* Topic.swift in Sources */,
+				1F33E71E1C18904800010682 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +618,7 @@
 		1F33E70D1C188D7600010682 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "ArlandaRC WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Arlandar-RC.ArlandaRC.watchkitapp.watchkitextension";
@@ -601,6 +633,7 @@
 		1F33E70E1C188D7600010682 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "ArlandaRC WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Arlandar-RC.ArlandaRC.watchkitapp.watchkitextension";
@@ -616,6 +649,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = ArlandaRC_WatchKit_Extension;
 				INFOPLIST_FILE = "ArlandaRC WatchKit App/Info.plist";
@@ -632,6 +666,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = ArlandaRC_WatchKit_Extension;
 				INFOPLIST_FILE = "ArlandaRC WatchKit App/Info.plist";
@@ -648,6 +683,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ArlandaRC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Arlandar-RC.ArlandaRC";
@@ -659,6 +695,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ArlandaRC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Arlandar-RC.ArlandaRC";
