@@ -11,7 +11,6 @@ import WatchKit
 class PostsRowController: NSObject {
 
     @IBOutlet var postAuthor: WKInterfaceLabel!
-    @IBOutlet var postDate: WKInterfaceLabel!
     @IBOutlet var postMessage: WKInterfaceLabel!
     
 }

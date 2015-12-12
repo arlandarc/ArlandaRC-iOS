@@ -11,6 +11,7 @@ import Foundation
 
 class AuthorInterfaceController: WKInterfaceController {
 
+    @IBOutlet var avatarGroup: WKInterfaceGroup!
     @IBOutlet var avatar: WKInterfaceImage!
     @IBOutlet var name: WKInterfaceLabel!
     @IBOutlet var signature: WKInterfaceLabel!
@@ -19,18 +20,24 @@ class AuthorInterfaceController: WKInterfaceController {
         super.awakeWithContext(context)
         // Configure interface objects here.
         
-        let urlPath: String = "http://www.arlandarc.se/forum/download/file.php?avatar=57_1242235689.gif"
-        let url = NSURL(string: urlPath)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithURL(url!, completionHandler: {(data, reponse, error) in
-            if error == nil {
-                self.avatar.setImage(UIImage(data: data!))
-            }
-        })
-        task.resume()
-        
-        
-        
+        let avatarUrl = "http://www.arlandarc.se/forum/download/file.php?avatar=56_1273278893.jpg"
+        if (avatarUrl.isEmpty) {
+          avatarGroup.setHidden(true)
+        } else {
+            let urlPath: String = avatarUrl
+            let url = NSURL(string: urlPath)
+            let session = NSURLSession.sharedSession()
+            let task = session.dataTaskWithURL(url!, completionHandler: {(data, response, error) in
+                if error == nil {
+                    print(UIImage(data: data!))
+                    self.avatar.setImage(UIImage(data: data!))
+                    self.animateWithDuration(0.2) {
+                        self.avatar.setAlpha(1)
+                    }
+                }
+            })
+            task.resume()
+        }
     }
     
     override func willActivate() {

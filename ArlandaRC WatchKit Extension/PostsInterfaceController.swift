@@ -24,7 +24,6 @@ class PostsInterfaceController: WKInterfaceController {
             if let row = self.postsTable.rowControllerAtIndex(index) as? PostsRowController {
                 row.postAuthor.setText(post.author)
                 row.postMessage.setText(post.message)
-                row.postDate.setText(post.date)
             }
         }
         let indexSet = NSMutableIndexSet()

@@ -23,7 +23,7 @@
                                                 <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
                                             </label>
                                             <label alignment="left" text="Idag 10:05" id="nHD-hh-N1A">
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                             </label>
                                         </items>
@@ -87,27 +87,18 @@
                                 <tableRow identifier="PostsRow" id="8wF-ad-zxi" customClass="PostsRowController" customModule="ArlandaRC_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="1" id="q2r-Fv-svQ">
                                         <items>
+                                            <label width="1" widthAdjustment="-35" alignment="left" text="Label" id="SQS-Be-lTk">
+                                                <color key="textColor" red="0.99607843139999996" green="0.76470588240000004" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
                                             <label alignment="left" text="Label" numberOfLines="0" id="dAr-PC-e95">
                                                 <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                             </label>
-                                            <group width="1" alignment="left" id="Pdj-g2-2nd">
-                                                <items>
-                                                    <label width="1" widthAdjustment="-35" alignment="left" text="Label" id="SQS-Be-lTk">
-                                                        <color key="textColor" red="0.99607843139999996" green="0.76470588240000004" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                                                    </label>
-                                                    <label alignment="left" hidden="YES" text="Label" id="pOU-rX-6Lc">
-                                                        <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                                                    </label>
-                                                </items>
-                                            </group>
                                         </items>
                                         <edgeInsets key="margins" left="5" right="5" top="2" bottom="3"/>
                                     </group>
                                     <connections>
                                         <outlet property="postAuthor" destination="SQS-Be-lTk" id="SJQ-H2-qXl"/>
-                                        <outlet property="postDate" destination="pOU-rX-6Lc" id="Ef7-jk-bAf"/>
                                         <outlet property="postMessage" destination="dAr-PC-e95" id="UVS-fz-hc5"/>
                                     </connections>
                                 </tableRow>
@@ -163,6 +154,7 @@
                     </items>
                     <connections>
                         <outlet property="avatar" destination="zdl-3y-fS9" id="KZk-d3-kaN"/>
+                        <outlet property="avatarGroup" destination="Pdn-mA-lZl" id="3s8-hU-5S8"/>
                         <outlet property="name" destination="gmo-A7-9id" id="LBm-za-mOA"/>
                         <outlet property="signature" destination="Cb0-dP-o6D" id="1QS-As-uWd"/>
                     </connections>
