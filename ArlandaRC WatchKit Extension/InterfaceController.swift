@@ -14,7 +14,9 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var topicsTable: WKInterfaceTable!
 
     @IBAction func onMenuReload() {
-        print("hej")
+        self.animateWithDuration(0.2) {
+            self.topicsTable.setAlpha(0)
+        }
         loadTableData()
     }
     
@@ -23,6 +25,7 @@ class InterfaceController: WKInterfaceController {
     
     override init() {
         super.init()
+        topicsTable.setAlpha(0)
         loadTableData()
     }
     
@@ -50,7 +53,6 @@ class InterfaceController: WKInterfaceController {
     
     func loadTableData() {
         print("Loading new")
-        self.topicsTable.setAlpha(0)
         let urlPath: String = "http://api.arlandarc.se/1.0/activetopics"
         let url = NSURL(string: urlPath)
         let session = NSURLSession.sharedSession()
@@ -74,6 +76,7 @@ class InterfaceController: WKInterfaceController {
             self.animateWithDuration(0.3) {
                 self.topicsTable.setAlpha(1)
             }
+            self.topicsTable.scrollToRowAtIndex(0)
             
         })
         task.resume()

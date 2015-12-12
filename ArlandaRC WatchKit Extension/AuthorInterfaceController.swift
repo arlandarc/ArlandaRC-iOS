@@ -29,7 +29,6 @@ class AuthorInterfaceController: WKInterfaceController {
             let session = NSURLSession.sharedSession()
             let task = session.dataTaskWithURL(url!, completionHandler: {(data, response, error) in
                 if error == nil {
-                    print(UIImage(data: data!))
                     self.avatar.setImage(UIImage(data: data!))
                     self.animateWithDuration(0.2) {
                         self.avatar.setAlpha(1)
