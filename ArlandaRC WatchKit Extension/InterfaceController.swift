@@ -47,6 +47,9 @@ class InterfaceController: WKInterfaceController {
     }
     
     override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
+        if let row = topicsTable.rowControllerAtIndex(rowIndex) as? TopicsRowController {
+            row.rowIsUnread.setHidden(true)
+        }
         pushControllerWithName("Posts", context: posts[rowIndex])
     }
     

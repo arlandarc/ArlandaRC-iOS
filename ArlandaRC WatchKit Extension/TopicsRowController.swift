@@ -13,5 +13,6 @@ class TopicsRowController: NSObject {
     @IBOutlet var rowTitle: WKInterfaceLabel!
     @IBOutlet var rowCategory: WKInterfaceLabel!
     @IBOutlet var rowDate: WKInterfaceLabel!
+    @IBOutlet var rowIsUnread: WKInterfaceGroup!
     
 }
