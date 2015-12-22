@@ -64,6 +64,23 @@ class InterfaceController: WKInterfaceController {
                     if let row = self.topicsTable.rowControllerAtIndex(index) as? TopicsRowController {
                         row.rowTitle.setText(topic["title"].string)
                         row.rowCategory.setText(topic["category"].string)
+
+                        let date = NSDate(timeIntervalSince1970: topic["last_post_time"].doubleValue)
+                        let formatter = NSDateFormatter()
+                        formatter.dateFormat = "YY-MM-d HH:mm"
+                        var dateExtension = ""
+                        if (NSCalendar.currentCalendar().isDateInToday(date)) {
+                            dateExtension = "Idag"
+                            formatter.dateFormat = "HH:mm"
+                        } else if (NSCalendar.currentCalendar().isDateInYesterday(date)) {
+                            dateExtension = "Igår"
+                            formatter.dateFormat = "HH:mm"
+                        } else {
+                            formatter.dateFormat = "YYYY-MM-dd"
+                        }
+                        formatter.stringFromDate(date)
+                        row.rowDate.setText((!dateExtension.isEmpty ? dateExtension + " " : "") + formatter.stringFromDate(date))
+
                         self.posts.append(Topic(topicTitle: topic["title"].string!,
                             topicCategory: topic["category"].string!,
                             topicPosts: [Post(postAuthor: "Ove", postMessage: "Nu är det dax att markera upp var hoppen ska vara och den ungefärliga bandragning.", postDate: "11:05"), Post(postAuthor: "neo", postMessage: "Jag tar gärna en liten sovmorgon på söndagen, så kl 11:00. Då tycker jag att vi börjar markera upp var hoppen ska vara. (Mörknar rätt fort också)", postDate: "11:05"), Post(postAuthor: "Lightuz", postMessage: "Det vill säga hjullastare.", postDate: "11:05"), Post(postAuthor: "neo", postMessage: "Det vill säga hjullastare.", postDate: "11:05"), Post(postAuthor: "Superaction2", postMessage: "Det vill säga hjullastare.", postDate: "11:05")]))
