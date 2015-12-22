@@ -85,7 +85,7 @@
                         <table alignment="left" spacing="6" id="mxz-pg-qTw">
                             <items>
                                 <tableRow identifier="PostsRow" id="8wF-ad-zxi" customClass="PostsRowController" customModule="ArlandaRC_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="1" id="q2r-Fv-svQ">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="0.0" id="q2r-Fv-svQ">
                                         <items>
                                             <label width="1" widthAdjustment="-35" alignment="left" text="Label" id="SQS-Be-lTk">
                                                 <color key="textColor" red="0.99607843139999996" green="0.76470588240000004" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
