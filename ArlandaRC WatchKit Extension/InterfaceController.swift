@@ -20,8 +20,7 @@ class InterfaceController: WKInterfaceController {
         loadTableData()
     }
     
-    let topics = []
-    var posts = [Topic]()
+    var topics = [Topic]()
     
     override init() {
         super.init()
@@ -50,7 +49,7 @@ class InterfaceController: WKInterfaceController {
         if let row = topicsTable.rowControllerAtIndex(rowIndex) as? TopicsRowController {
             row.rowIsUnread.setHidden(true)
         }
-        pushControllerWithName("Posts", context: posts[rowIndex])
+        pushControllerWithName("Posts", context: topics[rowIndex])
     }
     
     
@@ -84,9 +83,13 @@ class InterfaceController: WKInterfaceController {
                         formatter.stringFromDate(date)
                         row.rowDate.setText((!dateExtension.isEmpty ? dateExtension + " " : "") + formatter.stringFromDate(date))
 
-                        self.posts.append(Topic(topicTitle: topic["title"].string!,
+                        var posts = [Post]()
+                        for (index, post) in (topic["posts"].array?.enumerate())! {
+                            posts.append(Post(postAuthor: "Ove", postMessage: post.string!, postDate: "11:05"))
+                        }
+                        self.topics.append(Topic(topicTitle: topic["title"].string!,
                             topicCategory: topic["category"].string!,
-                            topicPosts: [Post(postAuthor: "Ove", postMessage: "Nu är det dax att markera upp var hoppen ska vara och den ungefärliga bandragning.", postDate: "11:05"), Post(postAuthor: "neo", postMessage: "Jag tar gärna en liten sovmorgon på söndagen, så kl 11:00. Då tycker jag att vi börjar markera upp var hoppen ska vara. (Mörknar rätt fort också)", postDate: "11:05"), Post(postAuthor: "Lightuz", postMessage: "Det vill säga hjullastare.", postDate: "11:05"), Post(postAuthor: "neo", postMessage: "Det vill säga hjullastare.", postDate: "11:05"), Post(postAuthor: "Superaction2", postMessage: "Det vill säga hjullastare.", postDate: "11:05")]))
+                            topicPosts: posts))
                         
                         
                     }
