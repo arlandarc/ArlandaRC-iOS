@@ -60,9 +60,9 @@ class InterfaceController: WKInterfaceController {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!, completionHandler: {(data, reponse, error) in
             let json = JSON(data: data!)
-            if let topics = json[].array {
-                self.topicsTable.setNumberOfRows(topics.count, withRowType: "TopicsRow")
-                for (index, topic) in topics.enumerate() {
+            if let topicsResponse = json[].array {
+                self.topicsTable.setNumberOfRows(topicsResponse.count, withRowType: "TopicsRow")
+                for (index, topic) in topicsResponse.enumerate() {
                     if let row = self.topicsTable.rowControllerAtIndex(index) as? TopicsRowController {
                         row.rowTitle.setText(topic["title"].string)
                         row.rowCategory.setText(topic["category"].string)
