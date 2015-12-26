@@ -59,41 +59,47 @@ class InterfaceController: WKInterfaceController {
         let url = NSURL(string: urlPath)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!, completionHandler: {(data, reponse, error) in
-            let json = JSON(data: data!)
-            if let topicsResponse = json[].array {
-                self.topicsTable.setNumberOfRows(topicsResponse.count, withRowType: "TopicsRow")
-                for (index, topic) in topicsResponse.enumerate() {
-                    if let row = self.topicsTable.rowControllerAtIndex(index) as? TopicsRowController {
-                        row.rowTitle.setText(topic["title"].string)
-                        row.rowCategory.setText(topic["category"].string)
+            if error == nil {
+              let json = JSON(data: data!)
+              if let topicsResponse = json[].array {
+                  self.topicsTable.setNumberOfRows(topicsResponse.count, withRowType: "TopicsRow")
+                  for (index, topic) in topicsResponse.enumerate() {
+                      if let row = self.topicsTable.rowControllerAtIndex(index) as? TopicsRowController {
+                          row.rowTitle.setText(topic["title"].string)
+                          row.rowCategory.setText(topic["category"].string)
 
-                        let date = NSDate(timeIntervalSince1970: topic["last_post_time"].doubleValue)
-                        let formatter = NSDateFormatter()
-                        formatter.dateFormat = "YY-MM-d HH:mm"
-                        var dateExtension = ""
-                        if (NSCalendar.currentCalendar().isDateInToday(date)) {
-                            dateExtension = "Idag"
-                            formatter.dateFormat = "HH:mm"
-                        } else if (NSCalendar.currentCalendar().isDateInYesterday(date)) {
-                            dateExtension = "Igår"
-                            formatter.dateFormat = "HH:mm"
-                        } else {
-                            formatter.dateFormat = "YYYY-MM-dd"
-                        }
-                        formatter.stringFromDate(date)
-                        row.rowDate.setText((!dateExtension.isEmpty ? dateExtension + " " : "") + formatter.stringFromDate(date))
+                          let date = NSDate(timeIntervalSince1970: topic["last_post_time"].doubleValue)
+                          let formatter = NSDateFormatter()
+                          formatter.dateFormat = "YY-MM-d HH:mm"
+                          var dateExtension = ""
+                          if (NSCalendar.currentCalendar().isDateInToday(date)) {
+                              dateExtension = "Idag"
+                              formatter.dateFormat = "HH:mm"
+                          } else if (NSCalendar.currentCalendar().isDateInYesterday(date)) {
+                              dateExtension = "Igår"
+                              formatter.dateFormat = "HH:mm"
+                          } else {
+                              formatter.dateFormat = "YYYY-MM-dd"
+                          }
+                          formatter.stringFromDate(date)
+                          row.rowDate.setText((!dateExtension.isEmpty ? dateExtension + " " : "") + formatter.stringFromDate(date))
 
-                        var posts = [Post]()
-                        for (index, post) in (topic["posts"].array?.enumerate())! {
-                            posts.append(Post(postAuthor: "Ove", postMessage: post.string!, postDate: "11:05"))
-                        }
-                        self.topics.append(Topic(topicTitle: topic["title"].string!,
-                            topicCategory: topic["category"].string!,
-                            topicPosts: posts))
+                          var posts = [Post]()
+                          for (index, post) in (topic["posts"].array?.enumerate())! {
+                              posts.append(Post(postAuthor: "Ove", postMessage: post.string!, postDate: "11:05"))
+                          }
+                          self.topics.append(Topic(topicTitle: topic["title"].string!,
+                              topicCategory: topic["category"].string!,
+                              topicPosts: posts))
                         
                         
-                    }
-                }
+                      }
+                  }
+              } else {
+                  print("No array")
+              }
+            } else {
+              print("Something went wrong")
             }
             //self.activityIndicatorCar.setHidden(true)
             self.animateWithDuration(0.3) {
