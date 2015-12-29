@@ -98,11 +98,11 @@
                         <table alignment="left" spacing="6" id="mxz-pg-qTw">
                             <items>
                                 <tableRow identifier="PostsRow" id="8wF-ad-zxi" customClass="PostsRowController" customModule="ArlandaRC_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="0.0" id="q2r-Fv-svQ">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="3" id="q2r-Fv-svQ">
                                         <items>
-                                            <label width="1" widthAdjustment="-35" alignment="left" text="Label" id="SQS-Be-lTk">
+                                            <label width="1" alignment="left" text="Label" id="SQS-Be-lTk">
                                                 <color key="textColor" red="0.99607843139999996" green="0.76470588240000004" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                             </label>
                                             <label alignment="left" text="Label" numberOfLines="0" id="dAr-PC-e95">
                                                 <fontDescription key="font" style="UICTFontTextStyleBody"/>
@@ -118,8 +118,9 @@
                                 <tableRow identifier="PostsDate" selectable="NO" id="cw8-cy-AVD" customClass="PostsDateController" customModule="ArlandaRC_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="0.0" id="wRJ-WU-rD7">
                                         <items>
-                                            <label alignment="center" text="15-9-15 10:05" id="0Yp-WX-znb">
-                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            <label alignment="center" text="2015-09-15" id="0Yp-WX-znb">
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="font" type="system" pointSize="12"/>
                                             </label>
                                         </items>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

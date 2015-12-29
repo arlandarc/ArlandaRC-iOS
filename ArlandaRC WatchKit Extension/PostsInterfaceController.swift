@@ -20,27 +20,32 @@ class PostsInterfaceController: WKInterfaceController {
         let topic = context as! Topic
         setTitle(topic.title)
         postsTable.setNumberOfRows(topic.posts.count, withRowType: "PostsRow")
+        let indexSet = NSMutableIndexSet()
         for (index, post) in topic.posts.enumerate() {
             if let row = self.postsTable.rowControllerAtIndex(index) as? PostsRowController {
                 row.postAuthor.setText(post.author)
                 row.postMessage.setText(post.message)
             }
-        }
-        let indexSet = NSMutableIndexSet()
-        indexSet.addIndex(0)
-        indexSet.addIndex(3)
-        postsTable.insertRowsAtIndexes(indexSet, withRowType: "PostsDate")
-        if let row = self.postsTable.rowControllerAtIndex(0) as? PostsDateController {
-            row.postDate.setText("15-09-12 11:05")
-        }
-        
-        if let row = self.postsTable.rowControllerAtIndex(3) as? PostsDateController {
-            row.postDate.setText("15-09-15 11:05")
+
+            if index == 0 {
+                indexSet.addIndex(index)
+            } else {
+                indexSet.addIndex(index+index)
+            }
         }
 
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
-            self.postsTable.scrollToRowAtIndex(topic.posts.count + 1)
+        postsTable.insertRowsAtIndexes(indexSet, withRowType: "PostsDate")
+        for var index = 0; index < postsTable.numberOfRows; ++index {
+            if let row = self.postsTable.rowControllerAtIndex(index) as? PostsDateController {
+                row.postDate.setText(topic.posts[index / 2].date)
+            }
+        }
+
+        if topic.posts.count > 1 {
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                self.postsTable.scrollToRowAtIndex(self.postsTable.numberOfRows - 1)
+            }
         }
     }
     

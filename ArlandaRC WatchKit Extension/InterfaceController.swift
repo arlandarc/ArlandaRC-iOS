@@ -60,6 +60,7 @@ class InterfaceController: WKInterfaceController {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!, completionHandler: {(data, reponse, error) in
             if error == nil {
+                print("Callback")
               let json = JSON(data: data!)
               if let topicsResponse = json[].array {
                   self.topicsTable.setNumberOfRows(topicsResponse.count, withRowType: "TopicsRow")
@@ -70,7 +71,6 @@ class InterfaceController: WKInterfaceController {
 
                           let date = NSDate(timeIntervalSince1970: topic["last_post_time"].doubleValue)
                           let formatter = NSDateFormatter()
-                          formatter.dateFormat = "YY-MM-d HH:mm"
                           var dateExtension = ""
                           if (NSCalendar.currentCalendar().isDateInToday(date)) {
                               dateExtension = "Idag"
@@ -79,14 +79,41 @@ class InterfaceController: WKInterfaceController {
                               dateExtension = "Igår"
                               formatter.dateFormat = "HH:mm"
                           } else {
-                              formatter.dateFormat = "YYYY-MM-dd"
+                            let oneWeekAgo = NSCalendar.currentCalendar().dateByAddingUnit(.WeekOfYear, value: -1, toDate: NSDate(), options: NSCalendarOptions())!
+                            let order = NSCalendar.currentCalendar().compareDate(oneWeekAgo, toDate: date, toUnitGranularity: NSCalendarUnit.Day)
+                            switch order {
+                            case .OrderedAscending:
+                                formatter.dateFormat = "EEEE HH:mm"
+                            default:
+                                formatter.dateFormat = "YYYY-MM-dd"
+                            }
                           }
                           formatter.stringFromDate(date)
                           row.rowDate.setText((!dateExtension.isEmpty ? dateExtension + " " : "") + formatter.stringFromDate(date))
 
                           var posts = [Post]()
-                          for (index, post) in (topic["posts"].array?.enumerate())! {
-                              posts.append(Post(postAuthor: "Ove", postMessage: post.string!, postDate: "11:05"))
+                          for (_, post) in (topic["posts"].array?.enumerate())! {
+
+                            let date = NSDate(timeIntervalSince1970: post["post_time"].doubleValue)
+                            let formatter = NSDateFormatter()
+                            if (NSCalendar.currentCalendar().isDateInToday(date)) {
+                                dateExtension = "Idag"
+                                formatter.dateFormat = "HH:mm"
+                            } else if (NSCalendar.currentCalendar().isDateInYesterday(date)) {
+                                dateExtension = "Igår"
+                                formatter.dateFormat = "HH:mm"
+                            } else {
+                                let oneWeekAgo = NSCalendar.currentCalendar().dateByAddingUnit(.WeekOfYear, value: -1, toDate: NSDate(), options: NSCalendarOptions())!
+                                let order = NSCalendar.currentCalendar().compareDate(oneWeekAgo, toDate: date, toUnitGranularity: NSCalendarUnit.Day)
+                                switch order {
+                                case .OrderedAscending:
+                                    formatter.dateFormat = "EEEE HH:mm"
+                                default:
+                                    formatter.dateFormat = "EEE d MMM HH:mm"
+                                }
+                            }
+
+                              posts.append(Post(postAuthor: post["post_author"].string!, postMessage: post["post_text"].string!, postDate: formatter.stringFromDate(date)))
                           }
                           self.topics.append(Topic(topicTitle: topic["title"].string!,
                               topicCategory: topic["category"].string!,
